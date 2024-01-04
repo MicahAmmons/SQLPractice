@@ -45,10 +45,17 @@ SELECT
 p.Name,
 SUM(s.PricePerUnit) AS Price,
 SUM(s.Quantity) AS Quantity
-FROM bestbuy.products p
-INNER JOIN bestbuy.sales s
-ON p.ProductID = s.ProductID
-GROUP BY p.Name;
+FROM
+bestbuy.products AS p
+INNER JOIN
+bestbuy.sales AS s
+ON
+p.ProductID = s.ProductID
+WHERE
+p.Name = 'Eagles: Hotel California'
+GROUP BY
+p.Name;
+
 
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
 SELECT
